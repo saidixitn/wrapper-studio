@@ -1,0 +1,116 @@
+/* ==========================================================================
+   WRAPPER STUDIO - Framer Interactivity & Animation Engine
+   Enables 60FPS CSS marquee, accordion toggles, carousel motion, and reactive mockup
+   ========================================================================== */
+
+/* Infinite Logo Ticker Scroll */
+@keyframes framerTickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+[data-framer-name="logos-ticker"] ul {
+  opacity: 1 !important;
+  display: flex !important;
+  width: max-content !important;
+  animation: framerTickerScroll 30s linear infinite !important;
+}
+
+[data-framer-name="logos-ticker"]:hover ul {
+  animation-play-state: paused !important;
+}
+
+/* FAQ Accordion Transitions */
+[data-framer-name="FAQ list"] [data-framer-name="Closed"] {
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-framer-name="FAQ list"] [data-framer-name="Closed"]:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.faq-answer-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-answer-container.open {
+  max-height: 250px;
+  opacity: 1;
+}
+
+/* Testimonial Track Carousel */
+[data-framer-name="Testimonial track"] {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+[data-framer-name="Previous testimonial"],
+[data-framer-name="Next testimonial"] {
+  cursor: pointer !important;
+  user-select: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+[data-framer-name="Previous testimonial"]:hover,
+[data-framer-name="Next testimonial"]:hover {
+  transform: scale(1.1);
+  opacity: 1 !important;
+}
+
+/* Interactive Hero Mockup Items */
+.sidebar-project-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.sidebar-project-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-project-item.active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Interactive Toast Notification */
+.wrapper-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #191919;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 20px;
+  border-radius: 9999px;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wrapper-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.wrapper-toast-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}

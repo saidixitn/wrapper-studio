@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+.npm/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs & Temp
+*.log
+.vercel
